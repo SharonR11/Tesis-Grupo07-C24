@@ -1,0 +1,35 @@
+<!-- Main content-->
+<section class="content">
+    <div class="container-center animated slideInDown">
+      <div class="view-header">
+        <div class="header-icon">
+          <i class="pe page-header-icon pe-7s-unlock"></i>
+        </div>
+        <div class="header-title">
+          <h3>Login</h3>
+          <small>Por favor ingrese sus credenciales para ingresar.</small>
+        </div>
+      </div>
+  
+      <div class="panel panel-filled">
+        <div class="panel-body">
+          <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <div class="form-group">
+              <label class="control-label">Email</label>
+              <input type="email" formControlName="email" placeholder="example@gmail.com" title="Please enter your email" class="form-control">
+              <!-- Agregar mensajes de validación si es necesario -->
+            </div>
+            <div class="form-group">
+              <label class="control-label">Password</label>
+              <input type="password" formControlName="password" title="Please enter your password" placeholder="******" class="form-control">
+              <!-- Agregar mensajes de validación si es necesario -->
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+            <a [routerLink]="['/crear-usuario']" class="btn btn-default">Nuevo Usuario</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End main content-->
+  
