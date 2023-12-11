@@ -1,1 +1,22 @@
 <p>create works!</p>
+
+<div class="menu-items">
+    <!-- Otras opciones del menú -->
+    <a href="#" (click)="logout()">Logout</a>
+</div>
+
+<div *ngIf="cuartos.length > 0; else noCuartos">
+    <h2>Listado de Cuartos</h2>
+    <ul>
+        <li *ngFor="let cuarto of cuartos">
+            <h3>{{ cuarto.nombre }}</h3>
+            <p><strong>Precio:</strong> {{ cuarto.precio }}</p>
+            <p><strong>Descripción:</strong> {{ cuarto.descripcion }}</p>
+            <!-- Mostrar otros detalles del cuarto según tu estructura de datos -->
+        </li>
+    </ul>
+</div>
+
+<ng-template #noCuartos>
+    <p>No hay cuartos disponibles.</p>
+</ng-template>
