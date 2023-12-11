@@ -1,7 +1,31 @@
 import Role from "../models/Role.js";
 import User from "../models/User.js";
-// import { ADMIN_EMAIL, ADMIN_USERNAME, ADMIN_PASSWORD } from "../config.js";
+
 import { ADMIN_EMAIL, ADMIN_USERNAME, ADMIN_PASSWORD } from "../global.js";
+import Servicio from "../models/Servicio.js";
+
+export const createServicios = async () => {
+  try {
+    // Count Documents
+    const count = await Servicio.estimatedDocumentCount();
+
+    // check for existing roles
+    if (count > 0) return;
+
+    // Create default Roles
+    const values = await Promise.all([
+      new Servicio({ nombre: "agua" }).save(),
+      new Servicio({ nombre: "luz" }).save(),
+      new Servicio({ nombre: "internet" }).save(),
+      //inicia la creacion automatica de los servicios
+    ]);
+
+    console.log(values);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const createRoles = async () => {
   try {
     // Count Documents
@@ -47,3 +71,4 @@ export const createAdmin = async () => {
 
 createRoles();
 createAdmin();
+createServicios();
