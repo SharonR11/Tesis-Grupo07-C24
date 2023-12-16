@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {InicioComponent} from './pages/inicio/inicio.component'
 import { CreateCuartoComponent } from './pages/cuarto/create-cuarto/create.component';
 // import { EditarProductosComponent } from './pages/productos/editar-productos/editar-productos.component';
 import { ListarComponent } from './pages/cuarto/listar/listar.component';
@@ -8,8 +9,8 @@ import { LoginComponent } from './pages/usuario/login/login.component';
 // import { TiendasComponent } from './pages/tiendas/tiendas.component';
 
 const routesInicio: Routes = [
-   { path: '', component: LoginComponent },
-//    { path: '', component: CreateComponent },
+    // { path: '', component: LoginComponent },
+   { path: '', component: InicioComponent },
    { path: 'listar-cuartos', component: ListarComponent },
   { path: 'crear-cuarto', component: CreateCuartoComponent },
 //   { path: 'editar-producto/:id', component: EditarProductosComponent },

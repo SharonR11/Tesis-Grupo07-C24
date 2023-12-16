@@ -1,0 +1,148 @@
+.content:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* background: linear-gradient(90deg, rgba(159, 225, 207, 0.4),
+      rgba(97, 137, 218, 0.345)); */
+    background-image: url('../../../../src/assets/images/fondo3.jpg');
+    background-size: cover; /* Ajusta la imagen para cubrir toda el área */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-position: center; /* Centra la imagen */
+    filter: contrast(100%);
+    filter: brightness(50%);
+
+}
+.col-12{
+    display: flex;
+    justify-content: center;   /* horizontal */
+}
+.column-content {
+    display: flex;
+    max-width: 60%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    margin: 20px;
+}
+h4{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 300; /* Grosor del texto */
+    color: #fefefe
+}
+.title{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400; /* Grosor del texto */
+    color: #232020
+}
+.img-ideal {
+    max-height: 70px; /* Establece una altura máxima para la imagen */
+    width: auto; /* Mantiene la proporción original del ancho y el alto */
+}
+
+.opcion{
+    /* border-style: solid;  */
+    border-width: 2px;
+    border-radius: 25px;
+    
+    background-color: rgb(255, 255, 255);
+    width: 420px;
+    height: 350px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 2px 2px 0px rgba(169, 169, 196, 0.953); */
+    box-shadow: 0px 1px 10px rgba(47, 96, 101, 0.78);
+    /* border-image: linear-gradient(90deg, rgba(221, 102, 75, 0.4), rgba(17, 58, 140, 0.5)) 3 stretch; */
+    /* box-shadow: 0 0 0 2px inset rgba(7, 33, 15, 0.4), 0 0 0 5px inset rgba(236, 112, 23, 0.5); */
+
+}
+.opcion-position{
+    margin: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    
+}
+.imagen{
+    max-width: 300px;
+    max-height: 150px;
+    overflow: hidden;
+    border-radius: 10% ;
+    box-shadow: 3px 3px 12px rgba(47, 96, 101, 0.78);
+    /* text-align: center; */
+}
+.usuario{
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.descripcion{
+    text-align: center;
+    color: #000000;
+    font-size: 0.8em;
+    font-weight: 500;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* font-family: 'Monserrat', sans-serif; */
+}
+.bt-content{
+    display: flex;
+    justify-content: center;
+}
+.col-sm-12 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Agregar un margen inferior entre columnas */
+}
+  
+.btnstart {
+    background: radial-gradient(circle, #71c6d4, #2ca0e2); /* Color naranja */
+    border-radius: 22px; /* Ajusta el valor según el grado de redondez deseado */
+    padding: 7px 40px; /* Ajusta el relleno (padding) según tus necesidades */
+    color: #fff; /* Color del texto en blanco */
+    text-align: center;
+    width: 200px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px; /* Tamaño de fuente */
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.btnstart1 {
+    background: radial-gradient(circle, #e5a369, #c34a1f); /* Color naranja */
+    border-radius: 22px; /* Ajusta el valor según el grado de redondez deseado */
+    padding: 7px 40px; /* Ajusta el relleno (padding) según tus necesidades */
+    color: #fff; /* Color del texto en blanco */
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    line-height: 35px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Tamaño de fuente */
+    cursor: pointer;
+    margin-bottom: 10px;
+    
+}
+
+.btnstart:hover {
+    border-color: #5c36d0;
+    background-color: #5c36d0; /* Cambiar el color de fondo al pasar el cursor */
+    box-shadow: 0px 1px 6px rgba(18, 23, 24, 0.78);
+    /* border: 2px solid #e64e6c;  */
+    /* Cambiar el color del borde al pasar el cursor */
+}
