@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="cuerpo">
-                                <form>
+                                <form [formGroup]="alumnoForm" (ngSubmit)="registrarUsuario()">
                                     <div class="form-group row">
                                         <div class="col-md-6 col-lg-6 col-sm-12">
                                             <div class="form-registro">
@@ -98,6 +98,19 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="alert alert-danger" *ngIf="emailExists">
+                                            El correo electrónico ya está registrado. Por favor, utiliza otro correo.
+                                        </div>
+
+                                        <div class="alert-email" *ngIf="alumnoForm.get('email')?.invalid && alumnoForm.get('email')?.touched">
+                                            <div *ngIf="alumnoForm.get('email')?.hasError('email') && !alumnoForm.get('email')?.hasError('pattern')">
+                                                Por favor, ingrese un correo electrónico válido.
+                                            </div>
+                                            <div *ngIf="alumnoForm.get('email')?.hasError('pattern')">
+                                                Ingrese su correo Institucional
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-6 col-lg-6 col-sm-12">
                                             <div class="form-registro">
                                                 <div class="row">
@@ -125,7 +138,7 @@
                                                     </div>
                                                     <div class="col-md-9 col-sm-9 col-lg-9 col-center">
                                                         <div class="form-input-left">
-                                                            <input class="" name="password" type="text" id="password" 
+                                                            <input class="" name="password" type="password" id="password" 
                                                             title="Ingrese su Contraseña"  formControlName="password" placeholder="Contraseña"> 
                                                         </div>
                                                     </div>
@@ -142,16 +155,20 @@
                                                     </div>
                                                     <div class="col-md-9 col-sm-9 col-lg-9 col-center">
                                                         <div class="form-input-left">
-                                                            <input class="" name="password" type="text" id="password" 
-                                                            title="Confirmar Contraseña"  formControlName="password" placeholder="Confirmar Contraseña"> 
+                                                            <input class="" name="confirmPassword" type="password" id="confirmPassword" 
+                                                            title="Ingrese su Contraseña"  formControlName="confirmPassword" placeholder="Confirmar Contraseña"> 
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div  class="invalid-feefback" *ngIf="alumnoForm?.get('confirmPassword')?.errors?.['incorrect'] 
+                                            && alumnoForm?.get('confirmPassword')?.touched">
+                                            Las contraseñas no coinciden.
+                                        </div>
                                         <div class="col-md-12 col-lg-12 col-sm-12">
                                             <div class="bt-content">
-                                                <a href="/crear-arrendador" class="btn btnstart">Registrar</a>
+                                                <button type="submit" class="btn btnstart">Registrar</button>
                                             </div>
 
                                         </div>

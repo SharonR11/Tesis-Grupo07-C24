@@ -3,6 +3,12 @@ import bcrypt from "bcryptjs";
 
 const productSchema = new mongoose.Schema(
   {
+    nombres: {
+      type: String,
+    },
+    apellidos: {
+      type: String,
+    },
     username: {
       type: String,
       unique: true,
@@ -10,6 +16,12 @@ const productSchema = new mongoose.Schema(
     email: {
       type: String,
       unique: true,
+    },
+    dni: {
+      type: Number,
+    },
+    celular: {
+      type: Number,
     },
     password: {
       type: String,

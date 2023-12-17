@@ -7,7 +7,7 @@ import { ListarComponent } from './pages/cuarto/listar/listar.component';
 import { CreateArrendadorComponent } from './pages/usuario/create-arrendador/create-arrendador.component';
 import { CreateAlumnoComponent } from './pages/usuario/create-alumno/create-alumno.component';
 import { LoginComponent } from './pages/usuario/login/login.component';
-// import { TiendasComponent } from './pages/tiendas/tiendas.component';
+import { AuthGuard } from './../app/guards/auth.guard';
 
 const routesInicio: Routes = [
     // { path: '', component: LoginComponent },
@@ -16,11 +16,10 @@ const routesInicio: Routes = [
   { path: 'crear-alumno', component: CreateAlumnoComponent},
 
   { path: 'login', component: LoginComponent },
-  
-  { path: 'listar-cuartos', component: ListarComponent },
-  { path: 'crear-cuarto', component: CreateCuartoComponent },
-//   { path: 'editar-producto/:id', component: EditarProductosComponent },
-//   { path: 'tiendas', component: TiendasComponent },
+  // {path: 'listar-cuartos', component: ListarComponent,canActivate: [AuthGuard]},
+  {path: 'listar-cuartos', component: ListarComponent},
+  { path: 'crear-cuarto', component: CreateCuartoComponent,canActivate: [AuthGuard] },
+
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 

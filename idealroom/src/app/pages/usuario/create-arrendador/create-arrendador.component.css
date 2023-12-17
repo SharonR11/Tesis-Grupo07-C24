@@ -173,6 +173,15 @@ input{
     width: 100%;
     max-width: 100%;
 }
+
+.invalid-feefback{
+ color: #c34a1f;
+ margin-top: 0;
+ margin-bottom: 10px; /* Espacio hacia abajo */
+ padding-bottom: 10px;
+}
+
+
 .bt-content{
     display: flex;
     justify-content: center;

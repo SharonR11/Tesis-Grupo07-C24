@@ -8,12 +8,16 @@ import { SECRET } from "../global.js";
 
 export const signupHandler = async (req, res) => {
   try {
-    const { username, email, password, roles } = req.body;
+    const { nombres,apellidos,username, email,dni,celular, password, roles } = req.body;
 
     // Creating a new User Object
     const newUser = new User({
+      nombres,
+      apellidos,
       username,
       email,
+      dni,
+      celular,
       password,
     });
 
@@ -106,3 +110,4 @@ export const logoutHandler = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
