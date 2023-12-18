@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable,of } from 'rxjs';
+import { Observable,of,BehaviorSubject } from 'rxjs';
 import { map,catchError } from 'rxjs/operators';
+import { UserRoles } from '.././models/user-roles-enum';
 @Injectable({
   providedIn: 'root'
 })
 export class DataLoginService {
 
+  private userRolesSubject = new BehaviorSubject<string[]>([]);
+  userRoles$ = this.userRolesSubject.asObservable();
+  private userId: string = '';
   url = 'http://localhost:4000/api/auth/';
+  private tokenKey = 'userToken';
+  private rolesKey = 'userRoles';
 
   userRoles: string[] = [];
 
@@ -17,55 +23,111 @@ export class DataLoginService {
   signup(userData: any): Observable<any> {
     return this.http.post<any>(`${this.url}signup`, userData);
   }
-
-  // signin(userData: any): Observable<any> {
-  //   return this.http.post<any>(`${this.url}signin`, userData);
-  // }
   signin(userData: any): Observable<any> {
-    return this.http.post<any>(`${this.url}signin`, userData).pipe(
+    const headers = {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    };
+
+    return this.http.post<any>(`${this.url}signin`, userData, { headers }).pipe(
       map(response => {
-        // Verificar si hay datos de usuario y roles en la respuesta
         if (response && response.token && response.user && response.user.roles) {
-          // Almacenar los roles del usuario en el servicio
+          // Almacenar el token y los roles del usuario en localStorage
+          localStorage.setItem(this.tokenKey, response.token);
+          localStorage.setItem(this.rolesKey, JSON.stringify(response.user.roles));
+          localStorage.setItem('userName', response.user.username);
+          // Almacenar los roles en el servicio también
           this.setUserRoles(response.user.roles);
         }
         return response;
       })
     );
   }
-  isLoggedIn(): Observable<boolean> {
-    const token = localStorage.getItem('token');
-    return of(!!token); 
+  // signin(userData: any): Observable<any> {
+  //   return this.http.post<any>(`${this.url}signin`, userData).pipe(
+  //     map(response => {
+  //       if (response && response.token && response.user && response.user.roles) {
+  //         // Almacenar los roles del usuario en el servicio
+  //         this.setUserRoles(response.user.roles);
+  //       }
+  //       return response;
+  //     })
+  //   );
+  // }
+
+  getToken(): string | null {
+    return localStorage.getItem(this.tokenKey);
   }
+  // Método para limpiar el token y los roles almacenados al salir o cerrar sesión
+  clearLocalStorage(): void {
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.rolesKey);
+    this.userRoles = []; // También limpia los roles en el servicio
+  }
+
+  // logout(): Observable<any> {
+  //   return this.http.post<any>(`${this.url}logout`, {});
+  // }
+  logout(): Observable<any> {
+    const headers = {
+      'Authorization': `Bearer ${localStorage.getItem(this.tokenKey)}`
+    };
   
-  validateToken(token: string): Observable<boolean> {
-    // Hacer una solicitud al servidor para validar el token
-    // Deberías enviar el token al servidor y manejar la respuesta aquí
-    return this.http.post<any>(`${this.url}/validateToken`, { token }).pipe(
-      map(response => {
-        // Aquí evalúas la respuesta del servidor
-        // Si el token es válido, devuelve true; de lo contrario, false
-        return response.isValid === true; // Por ejemplo, asumiendo que el servidor responde con un campo isValid
+    return this.http.post<any>(`${this.url}logout`, {}, { headers }).pipe(
+      map(() => {
+        // Eliminar el token y roles del localStorage y del servicio
+        localStorage.removeItem(this.tokenKey);
+        localStorage.removeItem(this.rolesKey);
+        this.setUserRoles([]);
+        return true;
       }),
       catchError(error => {
-        // Manejar cualquier error que surja durante la validación del token
-        console.error('Error validating token:', error);
-        return of(false); // Devolver false en caso de error
+        console.error('Error during logout:', error);
+        return of(false);
       })
     );
   }
   
-
-  logout(): Observable<any> {
-    return this.http.post<any>(`${this.url}logout`, {});
-  }
   getUserRoles(): string[] {
     return this.userRoles;
   }
-
-  // Método para establecer los roles del usuario
   setUserRoles(roles: string[]): void {
     this.userRoles = roles;
+    this.userRolesSubject.next(roles); // Actualiza el BehaviorSubject
   }
+
+  // setUserId(userId: string): void {
+  //   this.userId = userId;
+  // }
+  setUserId(userId: string): void {
+    this.userId = userId;
+    localStorage.setItem('userId', userId); // Almacena el ID del usuario en localStorage
+  }
+
+  // getUserId(): string | null {
+  //   const userData = localStorage.getItem('userData');
+  //   if (userData) {
+  //     const parsedData = JSON.parse(userData);
+  //     return parsedData.userId; // Ajusta la estructura según cómo se almacena el ID del usuario en tu app
+  //   }
+  //   return null;
+  // }
+  getUserId(): string | null {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      // Si el ID tiene el formato $oid, extrae el valor del ObjectId
+      const parsedUserId = JSON.parse(userId);
+      console.log('User ID:', userId);
+      return parsedUserId['$oid'];
+    }
+    console.log('User ID:', userId);
+    return null;
+    }
+  
+  getUserName(): string | null {
+    const userName = localStorage.getItem('userName');
+    console.log('User Name:', userName);
+    return userName;
+  }
+  
   
 }

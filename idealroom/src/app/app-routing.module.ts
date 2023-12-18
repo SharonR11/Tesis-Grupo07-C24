@@ -8,17 +8,21 @@ import { CreateArrendadorComponent } from './pages/usuario/create-arrendador/cre
 import { CreateAlumnoComponent } from './pages/usuario/create-alumno/create-alumno.component';
 import { LoginComponent } from './pages/usuario/login/login.component';
 import { AuthGuard } from './../app/guards/auth.guard';
-
+import { AlumnoAuthGuard } from './../app/guards/alumno.auth.guard';
 const routesInicio: Routes = [
     // { path: '', component: LoginComponent },
+  
   { path: '', component: InicioComponent },
   { path: 'crear-arrendador', component: CreateArrendadorComponent },
   { path: 'crear-alumno', component: CreateAlumnoComponent},
 
   { path: 'login', component: LoginComponent },
-  // {path: 'listar-cuartos', component: ListarComponent,canActivate: [AuthGuard]},
-  {path: 'listar-cuartos', component: ListarComponent},
-  { path: 'crear-cuarto', component: CreateCuartoComponent,canActivate: [AuthGuard] },
+  // { path: 'listar-cuartos', component: ListarComponent},
+  {
+    path: 'listar-cuartos',
+    component: ListarComponent // Usa el guardia para proteger esta ruta
+  },
+  { path: 'crear-cuarto', component: CreateCuartoComponent},
 
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

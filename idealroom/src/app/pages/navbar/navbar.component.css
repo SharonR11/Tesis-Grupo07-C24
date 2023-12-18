@@ -1,0 +1,74 @@
+.col-logo{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .col-user{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+  .img-ideal{
+    width: 100%;
+    height: auto;
+  }
+nav{
+    height: 100px;
+    border-bottom: solid 10px black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* background-image: url('../../../assets/images/buscador.jpg');
+    background-size: cover;  */
+    /* Ajusta la imagen al tamaño del contenedor */
+    /* background-position: center;  */
+    /* Centra la imagen en el contenedor */
+    /* background-repeat: no-repeat; */
+}
+  /* 
+  .navegador{
+    background-color: aliceblue;
+    display: flex;
+  }
+  nav{
+    content: '';
+    position: fixed;
+    top: 0;
+    z-index: -2;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .row {
+    display: flex;
+  }
+  .column-content{
+    display: flex;
+  width: 1170px;
+  align-items: center;
+  gap: 50px;
+  }
+  
+  .col-left, .col-center, .col-right {
+    display: flex;
+    align-items: center;
+  } */
+  
+  /* .col-left {
+    justify-content: flex-start; 
+  }
+  
+  .col-center {
+    flex: 1; 
+    justify-content: center;
+  }
+  
+  .col-right {
+    justify-content: flex-end;
+  }
+  .column-content {
+    max-width: 100%;
+    overflow: hidden;
+    align-items: center;
+  } */

@@ -9,8 +9,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/usuario/login/login.component';
 import { CreateCuartoComponent } from './pages/cuarto/create-cuarto/create.component';
 import { ListarComponent } from './pages/cuarto/listar/listar.component';
+import {NavbarComponent} from './pages/navbar/navbar.component'
 // import { CrearProductosComponent } from './pages/productos/crear-productos/crear-productos.component';
-import { NavbarComponent } from './pages/navbar/navbar.component';
+
 // import { EditarProductosComponent } from './pages/productos/editar-productos/editar-productos.component';
 // import { TiendasComponent } from './pages/tiendas/tiendas.component';
 // import { GoogleMapsModule } from '@angular/google-maps';
@@ -23,11 +24,8 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     CreateCuartoComponent,
     ListarComponent,
     CreateArrendadorComponent,
-    CreateAlumnoComponent
-    // CrearProductosComponent,
-    // NavbarComponent,
-    // EditarProductosComponent,
-    // TiendasComponent
+    CreateAlumnoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

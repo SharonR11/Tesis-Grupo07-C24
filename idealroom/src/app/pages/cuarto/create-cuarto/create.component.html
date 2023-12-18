@@ -1,8 +1,80 @@
-<p>create works!</p>
-
+<div *ngIf="currentUser">
+    <p>Welcome Arrendador, {{ currentUser }}</p>
+  </div>
 <div class="menu-items">
     <!-- Otras opciones del menú -->
     <a href="#" (click)="logout()">Logout</a>
+</div>
+
+<div>
+    <h2>Registrar Nuevo Cuarto</h2>
+    <form [formGroup]="cuartoForm" (ngSubmit)="registrarCuarto()">
+        <!-- Agrega los demás campos de acuerdo a tus necesidades -->
+        
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" formControlName="nombre" placeholder="Nombre">
+        </div>
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" formControlName="precio" name="precio" required>
+        </div>
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <textarea type="text" formControlName="descripcion" placeholder="Descripción" required></textarea>
+        </div>
+        <div>
+            <label for="direccion">Dirección:</label>
+            <input type="text" formControlName="direccion" name="direccion" required>
+        </div>
+        <!-- <div>
+            <label for="foto">Foto:</label>
+            <input type="file" formControlName="foto" name="foto" accept="image/*" multiple>
+        </div> -->
+        <div formArrayName="fotos">
+            <div *ngFor="let foto of fotosFormArray?.controls; let i = index;">
+              <input type="text" [formControlName]="i" placeholder="Foto URL">
+              <button type="button" (click)="removeFoto(i)">Eliminar Foto</button>
+            </div>
+            <button type="button" (click)="addFoto()">Agregar Foto</button>
+          </div>
+          
+          
+        <div>
+            <label for="ubicacion">Ubicación:</label>
+            <div>
+                <label for="latitud">Latitud:</label>
+                <input type="number" formControlName="latitud" name="latitud" required>
+            </div>
+            <div>
+                <label for="longitud">Longitud:</label>
+                <input type="number" formControlName="longitud" name="longitud" required>
+            </div>
+    
+        </div>
+        <div>
+            <label for="disponibilidad">Disponibilidad:</label>
+            <input type="checkbox" formControlName="disponibilidad" name="disponibilidad">
+        </div>
+        <div>
+            <label for="servicios">Servicios:</label>
+            <div>
+                <input type="checkbox" formControlName="servicios" value="luz">
+                <label for="luz">Luz</label>
+            </div>
+            <div>
+                <input type="checkbox" formControlName="servicios" value="agua">
+                <label for="agua">Agua</label>
+            </div>
+            <div>
+                <input type="checkbox" formControlName="servicios" value="internet">
+                <label for="internet">Internet</label>
+            </div>
+        </div>
+        
+        <!-- Otros campos para el formulario de cuarto -->
+        <button type="submit">Registrar Cuarto</button>
+    </form>
 </div>
 
 <div *ngIf="cuartos.length > 0; else noCuartos">
@@ -12,6 +84,27 @@
             <h3>{{ cuarto.nombre }}</h3>
             <p><strong>Precio:</strong> {{ cuarto.precio }}</p>
             <p><strong>Descripción:</strong> {{ cuarto.descripcion }}</p>
+            <p><strong>Dirección:</strong> {{ cuarto.direccion }}</p>
+            <p><strong>Ubicación:</strong> Latitud: {{ cuarto.ubicacion?.latitud }}, Longitud: {{ cuarto.ubicacion?.longitud }}</p>
+            <p><strong>Disponibilidad:</strong> {{ cuarto.disponibilidad ? 'Disponible' : 'No disponible' }}</p>
+            
+            <div *ngIf="cuarto.servicios && cuarto.servicios.length > 0">
+                <p><strong>Servicios:</strong></p>
+                <ul>
+                  <li *ngFor="let servicioId of cuarto.servicios">
+                    <!-- Verificar si la clave existe en serviciosMap antes de acceder a ella -->
+                    <ng-container *ngIf="serviciosMap[servicioId] !== undefined">
+                      {{ serviciosMap[servicioId] }}
+                    </ng-container>
+                  </li>
+                </ul>
+            </div>
+            <div *ngIf="cuarto.fotos && cuarto.fotos.length > 0">
+                <p><strong>Fotos:</strong></p>
+                <div *ngFor="let fotoUrl of cuarto.fotos">
+                  <img [src]="fotoUrl" alt="Foto del cuarto" width="200" height="150">
+                </div>
+              </div>
             <!-- Mostrar otros detalles del cuarto según tu estructura de datos -->
         </li>
     </ul>

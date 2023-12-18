@@ -70,6 +70,7 @@ export const signinHandler = async (req, res) => {
 
 
     // res.json({ token });
+    console.log("Token:", token);
 
     const userData = {
       id: userFound._id,
@@ -88,10 +89,6 @@ export const signinHandler = async (req, res) => {
   }
 };
 
-// En algún lugar de tu código, podrías tener una función para agregar tokens a la lista negra
-const addToBlacklist = (token) => {
-  // Aquí deberías guardar el token en tu almacenamiento persistente (base de datos, cache, etc.)
-};
 
 // En tu controlador de "logout"
 export const logoutHandler = async (req, res) => {
@@ -99,11 +96,9 @@ export const logoutHandler = async (req, res) => {
     if (!req.headers.authorization) {
       return res.status(400).json({ message: "Authorization header missing" });
     }
+    const token = req.headers.authorization.split(" ")[1];
+    //const token = req.headers.authorization.split(" ")[1]; // Obtener el token del encabezado
 
-    const token = req.headers.authorization.split(" ")[1]; // Obtener el token del encabezado
-
-    // Aquí podrías agregar el token a la lista negra
-    addToBlacklist(token);
 
     return res.status(200).json({ message: "Logout successful" });
   } catch (error) {

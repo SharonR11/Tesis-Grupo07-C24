@@ -1,1 +1,207 @@
-<p>listar works!</p>
+
+<section class="content">
+  <header>
+    <app-navbar></app-navbar>
+  </header>
+  <main>
+      <div class="col-buscar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="container buscador">
+          <div class="buscar">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="descripcion">
+                  <h2 class="desc">Busca tu lugar de alojamiento apropiado segun lo que necesites</h2>
+                  <p class="desc2">Bienvenido a tu búsqueda de alojamiento estudiantil. Encuentra tu lugar ideal cerca del instituto aquí.</p>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="buscar">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Ingrese ubicacion .." aria-label="Buscar..." aria-describedby="button-addon">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon">Buscar</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+                <div class="filtross">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                      <div class="buscar filtro1">
+                        <select>
+                          <option selected>Precio</option>
+                          <option value="1"> 200 </option>
+                          <option value="2"> 400 </option>
+                          <option value="3"> 600 </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                      <div class="buscar">
+                        <select>
+                        <option selected>Precio</option>
+                        <option value="1"> 200 </option>
+                        <option value="2"> 400 </option>
+                        <option value="3"> 600 </option>
+                      </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                      <div class="buscar">
+                        <select>
+                        <option selected>Precio</option>
+                        <option value="1"> 200 </option>
+                        <option value="2"> 400 </option>
+                        <option value="3"> 600 </option>
+                      </select>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+        <div class="container infor">
+          <div class="informacion-cuerpo">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="info-left ">
+                  <div class="imagen1">
+                    <img src="assets/images/buscador2.webp" class="img-ideal" alt="...">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 columna-padre">
+                <div class="info-right">
+                  <div class="info-desc">
+                    <h2 class="desc-left">Conoce los alojamients mas recomendados</h2>
+                    <p class="desc2-right">Explora alojamientos seguros y recomendados para estudiantes, 
+                      ideales para tu comodidad y tranquilidad mientras estudias.</p>
+                    <div class="bt-content">
+                        <a href="/crear-arrendador" class="btn btnstart">Conocer</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+        <div class="container">
+            <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="">
+                      <h4 class="subtitulo-linea">Alojamientos Destacados</h4>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+              <div class="">
+                <h4 class="">Busca tu lugar de alojamiento apropiado segun lo que necesites</h4>
+                <p class="">Bienvenido a tu búsqueda de alojamiento estudiantil. Encuentra tu lugar ideal cerca del instituto aquí.</p>
+              </div>
+            </div>
+            <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+              <div class="row">
+                <ng-container *ngIf="cuartos.length > 0; else noCuartos">
+                  <div *ngFor="let cuarto of cuartos" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="alojamiento">
+                      <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                          <div id="carouselExampleRide" class="carousel slide alo-img" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                              <ng-container *ngIf="cuarto.fotos && cuarto.fotos.length > 0">
+                                <div *ngFor="let fotoUrl of cuarto.fotos; let i = index" class="carousel-item" [class.active]="i === 0">
+                                  <img [src]="fotoUrl" class="d-block w-100" alt="...">
+                                </div>
+                              </ng-container>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+                        
+                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                          <div class="alo-cont">
+                            ddd
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Contenido del alojamiento -->ss
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-template #noCuartos>
+                  <!-- Manejo para cuando no hay cuartos -->ss
+                </ng-template>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+    </main>
+</section>
+
+
+
+
+<div>
+  <div *ngIf="currentUser">
+    <p>Welcome Estudiante, {{ currentUser }}</p>
+  </div>
+<div class="menu-items">
+    <!-- Otras opciones del menú -->
+    <a href="#" (click)="logout()">Logout</a>
+</div>
+
+<div *ngIf="cuartos.length > 0; else noCuartos">
+    <h2>Listado de Cuartos</h2>
+    <ul>
+        <li *ngFor="let cuarto of cuartos">
+            <h3>{{ cuarto.nombre }}</h3>
+            <p><strong>Precio:</strong> {{ cuarto.precio }}</p>
+            <p><strong>Descripción:</strong> {{ cuarto.descripcion }}</p>
+            <p><strong>Dirección:</strong> {{ cuarto.direccion }}</p>
+            <p><strong>Ubicación:</strong> Latitud: {{ cuarto.ubicacion?.latitud }}, Longitud: {{ cuarto.ubicacion?.longitud }}</p>
+            <p><strong>Disponibilidad:</strong> {{ cuarto.disponibilidad ? 'Disponible' : 'No disponible' }}</p>
+            
+            <div *ngIf="cuarto.servicios && cuarto.servicios.length > 0">
+                <p><strong>Servicios:</strong></p>
+                <ul>
+                  <li *ngFor="let servicioId of cuarto.servicios">
+                    <!-- Verificar si la clave existe en serviciosMap antes de acceder a ella -->
+                    <ng-container *ngIf="serviciosMap[servicioId] !== undefined">
+                      {{ serviciosMap[servicioId] }}
+                    </ng-container>
+                  </li>
+                </ul>
+            </div>
+            <div *ngIf="cuarto.fotos && cuarto.fotos.length > 0">
+                <p><strong>Fotos:</strong></p>
+                <div *ngFor="let fotoUrl of cuarto.fotos">
+                  <img [src]="fotoUrl" alt="Foto del cuarto" width="200" height="150">
+                </div>
+              </div>
+            <!-- Mostrar otros detalles del cuarto según tu estructura de datos -->
+        </li>
+    </ul>
+</div>
+
+<ng-template #noCuartos>
+    <p>No hay cuartos disponibles.</p>
+</ng-template>
+
+</div>

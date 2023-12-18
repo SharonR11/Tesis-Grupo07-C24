@@ -18,7 +18,7 @@ const cuartoSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        foto: String,
+        fotos: [String],
         ubicacion: {
             // Puedes definir la ubicación como un objeto con latitud y longitud, por ejemplo
             latitud: Number,

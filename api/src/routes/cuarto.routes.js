@@ -12,12 +12,7 @@ const router = Router();
 
 router.get("/", getCuartos);
 
-// router.get("/:productId", getProductById);
 
-router.post("/", [verifyToken, isArrendador], createCuarto);
-
-// router.put("/:productId", [verifyToken, isArrendador], updateProductById);
-
-// router.delete("/:productId", [verifyToken, isAdmin], deleteProductById);
+router.post("/create", [verifyToken, isArrendador], createCuarto);
 
 export default router;
