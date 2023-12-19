@@ -29,13 +29,13 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
+  height: 80px;
   z-index: 1000; /* Asegura que el header esté por encima del resto */
   
 }
 main {
-  padding-top: 20px; /* Ajusta esto según la altura de tu header */
-  margin-top: 100px; /* Ajusta esto según la altura de tu header */
+  padding-top: 10px; /* Ajusta esto según la altura de tu header */
+  margin-top: 90px; /* Ajusta esto según la altura de tu header */
   display: block;
 }
 
@@ -111,10 +111,9 @@ main {
 .buscar select{
   border-radius: 30px;
   background-color: rgba(75, 134, 152, 0.5);
-  width: 150px;
+  width: 140px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: var(--262729, #262729);
 }
@@ -221,39 +220,384 @@ main {
   margin-bottom: 12px;
   border-radius: 10px;
 }
-.alo-img{
-  max-width: 100%;
-  max-height: max-content;
-  border-radius: 10px;
-  height: 200px; /* Esto mantendrá las proporciones de la imagen */
-}
 
+/*NO MODIFICAR - IMAGEN DE ALOJAMNIENTO   >:(*/
 
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-}
-.img-opcion{
-  width: 100%;
-}
-.carousel-inner{
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-@media (min-width: 992px) {
-  .col-lg-4 .carousel-inner img {
-    height: max-content; /* Altura para pantallas grandes */
+@media (min-width: 992px) and (max-width: 1400px) {
+  /* Estilos para el rango de ancho entre 700px y 991px */
+  .fot-alo, .alo-img, img {
+    transition: .3s ease all;
+    height: 200px;
+    max-height: 200px;
     object-fit: cover;
+  }
+
+  .alo-img {
+    max-width: 100%;
+    height: 200px;
+    /* max-height: max-content; */
+    border-radius: 10px 0 0 10px;
+    background-color: darkred;
+  }
+
+  .carousel-inner {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    overflow: hidden;
+    /* max-width: 100%;
     width: max-content;
+    max-height: 100%;
+    height: max-content; */
   }
+
+  .lado{
+    padding-left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .alo-cont{
+    height: 200px;
+    justify-content: center;
+    padding-right: 5px;
+    display: flex;
+    width: 100%; 
+    
+  }
+  .title{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-ubica{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .alo-desc{
+    margin: 0px;
+    height: 20px;
+  }
+  .servicios-alo{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: max-content;
+  }
+  .ubi-pos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 60px;  /* ancho de dib icon*/
+    /* padding: 0%; */
+  }
+  .titulo-alo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--262729, #262729);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+    margin-bottom: 3px;/*margin   de titulo a direccion*/
+    display: flex;
+    align-items: center;
+  }
+  .text-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
 }
-@media (max-width: 768px) {
-  .col-lg-4 .carousel-inner img {
-    height: 150px; /* Altura para pantallas medianas y extra pequeñas */
-    object-fit: cover;
+@media (min-width: 768px) and (max-width: 991px) {
+  /* esto es img */
+  .fot-alo{
+    max-width: 100%;
     max-height: max-content;
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    overflow: hidden;
   }
+  .alo-img{
+    max-width: 100%;
+    max-height: max-content;
+    border-radius: 10px 10px 0 0;
+    background: gold;
+    height: 180px; 
+  }
+  .carousel-inner{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height:max-content;
+    overflow:hidden; 
+    border-radius: 10px 10px 0 0;
+    position:relative;
+    
+    overflow:hidden
+  }
+
+  .alo-cont{
+    height: 150px; /*alto del contenido de alojamiento*/
+    
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    display: flex;
+    width: 100%; padding: none;
+  }
+  .titulo-alo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--262729, #262729);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+    margin-bottom: 3px;/*margin   de titulo a direccion*/
+    display: flex;
+    align-items: center;
+  }
+  .text-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .servicios-alo{
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: max-content;
+  }
+  .ubi-pos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 70px;  /* ancho de dib icon*/
+    /* padding: 0%; */
+  }
+  .ubicacion-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 38px;
+    max-width: 100%;
+  }
+  
+} 
+@media (min-width: 576px) and (max-width: 767px) {
+  /* esto es img */
+  .fot-alo{
+    max-width: 100%;
+    max-height: max-content;
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .alo-img{
+    max-width: 100%;
+    max-height: max-content;
+    border-radius: 10px 10px 0 0;
+    background: rgb(200, 30, 183);
+    height: 150px; 
+  }
+  .carousel-inner{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height:max-content;
+    overflow:hidden; 
+    border-radius: 10px 10px 0 0;
+    position:relative;
+    
+    overflow:hidden
+  }
+  .alo-cont{
+    height: 150px; /*alto del contenido de alojamiento*/
+    
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    display: flex;
+    width: 100%; padding: none;
+  }
+  .titulo-alo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--262729, #262729);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+    margin-bottom: 3px;/*margin   de titulo a direccion*/
+    display: flex;
+    align-items: center;
+  }
+  .text-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .servicios-alo{
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: max-content;
+  }
+  .ubi-pos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 70px;  /* ancho de dib icon*/
+    /* padding: 0%; */
+  }
+  .ubicacion-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 30px;
+    max-width: 100%;
+  }
+} 
+@media (min-width: 376px) and (max-width: 575px) {
+  /* esto es img */
+  .fot-alo{
+    max-width: 100%;
+    max-height: max-content;
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    overflow: hidden;
+  }
+  .alo-img{
+    max-width: 100%;
+    max-height: max-content;
+    border-radius: 10px 10px 0 0;
+    background: rgb(200, 30, 183);
+    height: 150px; 
+  }
+  .carousel-inner{
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    height:max-content;
+    overflow:hidden; 
+    border-radius: 10px 10px 0 0;
+    position:relative;
+    
+    overflow:hidden
+  }
+  .alo-cont{
+    height: 200px; /*alto del contenido de alojamiento*/
+    
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    display: flex;
+    width: 100%; padding: none;
+  }
+  .titulo-alo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--262729, #262729);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+    margin-bottom: 3px;/*margin   de titulo a direccion*/
+    display: flex;
+    align-items: center;
+  }
+  .servicios-alo{
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    width: 100%;
+    max-width: max-content;
+  }
+  .ubi-pos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    width: 70px;  /* ancho de dib icon*/
+    /* padding: 0%; */
+  }
+  .ubicacion-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 30px;
+    max-width: 100%;
+  }
+  .text-alo{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  
+} 
+/*NO MODIFICAR   DESCRIPCION DE ALOJAMIENTO  >:(*/
+
+
+.precio{
+  color: brown;
+  font-weight: 700;
+}
+.icono{
+  font-size: 0.9em;
+  margin-left: 10px;
+  vertical-align: middle;
+  display: inline-block;
+  border: none;
+  margin: 0;
+  margin-right: 4px;
+  color: #5c36d0;
+}
+
+
+.empresa-footer{
+  background-image: url('../../../../assets/images/fondo88.jpg');
+
+  padding: 15px;
+   /* border-radius: 10px; */
+}
+.foot-alo{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--262729, #989ca4);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 3px;/*margin   de titulo a direccion*/
+  display: flex;
+  align-items: center;
 }

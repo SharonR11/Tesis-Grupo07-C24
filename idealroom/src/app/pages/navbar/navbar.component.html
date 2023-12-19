@@ -1,32 +1,52 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container text-center">
       <div class="row align-items-center">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-          <div class="col-logo d-flex flex-grow-1">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 medio">
+          <div class="col-logo d-flex flex-grow-1 medio">
             <img src="assets/images/idealroom.png" class="img-ideal vertical-image " alt="...">
           </div>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
           <div class="row align-items-center">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-              Inicio
+              <div class="medio">
+                <h4 class="opcion"> <a>Inicio</a></h4>
+              </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-              Nosotros
+            <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 medio">
+              <div class="medio">
+                <h4 class="opcion"> <a>Nosotros</a></h4>
+              </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-              Guia de Alojamientos
+            <div class="col-lg-4 col-md-3 col-sm-3 col-xs-3 medio">
+              <div class="medio">
+                <h4 class="opcion"> <a>Guia de Alojamientos</a></h4>
+              </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-             Contactanos
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 medio">
+              <div class="medio">
+                <h4 class="opcion"> <a>Contactanos</a></h4>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
           <div class="col-user d-flex flex-grow-1">
-            <i class=" icono fas fa-user-graduate"></i>
+
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle rounded-5" type="button" data-bs-toggle="dropdown">
+                <i class=" icono fas fa-user-graduate"></i>{{ currentUser }}
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item">Ver Perfil</a></li>
+                <li><a class="dropdown-item" (click)="logout()">Cerrar Sesion</a></li>
+              </ul>
+            </div>
+            
+            
           </div>
         </div>
       </div>
     </div>
   </nav>
+  

@@ -14,7 +14,7 @@
     height: auto;
   }
 nav{
-    height: 100px;
+    height: 80px;
     border-bottom: solid 10px black;
     border-top: none;
     border-left: none;
@@ -26,49 +26,21 @@ nav{
     /* Centra la imagen en el contenedor */
     /* background-repeat: no-repeat; */
 }
-  /* 
-  .navegador{
-    background-color: aliceblue;
-    display: flex;
-  }
-  nav{
-    content: '';
-    position: fixed;
-    top: 0;
-    z-index: -2;
-    left: 0;
-    right: 0;
-    width: 100%;
-  }
-  .row {
-    display: flex;
-  }
-  .column-content{
-    display: flex;
-  width: 1170px;
+.opcion{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: var(--262729, #262729);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  padding-top: 6px;
+}
+.medio{
+  display: flex;
   align-items: center;
-  gap: 50px;
-  }
-  
-  .col-left, .col-center, .col-right {
-    display: flex;
-    align-items: center;
-  } */
-  
-  /* .col-left {
-    justify-content: flex-start; 
-  }
-  
-  .col-center {
-    flex: 1; 
-    justify-content: center;
-  }
-  
-  .col-right {
-    justify-content: flex-end;
-  }
-  .column-content {
-    max-width: 100%;
-    overflow: hidden;
-    align-items: center;
-  } */
+  justify-content: center;
+  height: max-content;
+  max-height: 100%;
+  min-height: max-content;
+}
