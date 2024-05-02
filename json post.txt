@@ -1,0 +1,87 @@
+http://localhost:8080/api/auth/signup-estudiante
+ejemplos:
+{
+  "Nombres": "Juan",
+  "Apellidos": "Pérez",
+  "DNI": 12345678,
+  "Correo": "juan.perez@tecsup.edu.pe",
+  "Telefono": "987654321",
+  "Direccion": "Av. Lima 123",
+  "Password": "00000"
+}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSUQiOjgsImlhdCI6MTcxNDEwNTc5NH0.jjEkSMYd38VPKWaQzjYvL3LgbYtFjZwMIMEA4vYtHjk
+
+-----------------------
+
+http://localhost:8080/api/auth/signup-arrendador
+
+{
+  "Nombres": "Juan",
+  "Apellidos": "Gomez",
+  "DNI": 12345678,
+  "Correo": "juan@gmail.com",
+  "Telefono": "987654321",
+  "Direccion": "Av. Lima 123",
+  "Password": "123456789",
+  "ContratoArrendamiento": "contenido del contrato en formato de cadena",
+  "DocumentacionLegal": "contenido de la documentación legal en formato de cadena"
+}
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSUQiOjksImlhdCI6MTcxNDEwNjY1NX0.uzqJ-oVTUzJxZtTXS7Fle_kpy4S9lDbAerueL3qIqdg
+
+
+-------------Registro arrendador con envio de verificacion correo------
+http://localhost:8080/api/auth/signup-arrendador
+{
+  "Nombres": "Marcos",
+  "Apellidos": "Leon",
+  "DNI": 12335678,
+  "Correo": "m4rcos.leo201@gmail.com",
+  "Telefono": "989654321",
+  "Direccion": "Av. Lima 123",
+  "Password": "123456789",
+  "ContratoArrendamiento": "contenido del contrato en formato de cadena",
+  "DocumentacionLegal": "contenido de la documentación legal en formato de cadena"
+}
+--------Repuesta:
+{
+  "message": "Arrendador registrado exitosamente.",
+  "usuario": {
+    "FechaCreacion": "2024-04-29T05:30:24.567Z",
+    "PremiumStatus": false,
+    "UsuarioID": 18,
+    "Nombres": "Marcos",
+    "Apellidos": "Leon",
+    "DNI": 12335678,
+    "Correo": "m4rcos.leo201@gmail.com",
+    "Telefono": "989654321",
+    "Direccion": "Av. Lima 123",
+    "Password": "$2a$10$krgUXkptkOBhXxYj6N13.O3i5m59cHhcC8uOal2pF0hib8FZPIxjS",
+    "RolID": 2,
+    "ContratoArrendamiento": "contenido del contrato en formato de cadena",
+    "DocumentacionLegal": "contenido de la documentación legal en formato de cadena",
+    "EstadoSesion": false,
+    "CorreoVerificado": false,
+    "Estado": true
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSUQiOjE4LCJpYXQiOjE3MTQzNjg2MjZ9.NA1n-zyN_HpATDbsJPr1SrEhAw4cO2O-5XQ9U1MAVmI"
+}
+----------------VERIFICAR CORREO-
+http://localhost:8080/api/correo/verificar-codigo
+
+{
+    "usuarioID": 22,
+    "codigoVerificacion": "473680"
+}
+------------LOGIN -----
+http://localhost:8080/api/auth/login
+{
+  "email": "m4rcos.leo201@gmail.com",
+  "password": "123456789"
+}
+-----RESPUESTA
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvSUQiOjI0LCJpYXQiOjE3MTQ0NTg5ODJ9.NhpR-6SjCpOW5ebuz1H_lVjIfhRoDJ0cHQ_A28Y2hCQ"
+}
+-------------
+http://localhost:8080/api/auth/logout

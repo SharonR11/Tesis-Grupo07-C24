@@ -1,0 +1,14 @@
+npm init
+npm i --save express sequelize cors mysql2
+node server.js
+
+npm install jsonwebtoken
+npm install bcryptjs
+npm install express-validator
+npm install dotenv
+npm install nodemailer
+
+
+--------------------------Workbench ----
+CREATE SCHEMA IF NOT EXISTS `ideal` DEFAULT CHARACTER SET utf8 ;
+USE `ideal` ;
