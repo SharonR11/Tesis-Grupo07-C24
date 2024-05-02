@@ -48,3 +48,18 @@ export const getCuartos = async (req, res) => {
   const cuartos = await Cuarto.find();
   return res.json(cuartos);
 };
+
+// 88888
+export const getCuartoPorId = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const cuarto = await Cuarto.findById(id);
+    if (!cuarto) {
+      return res.status(404).json({ message: "Cuarto no encontrado" });
+    }
+    return res.json(cuarto);
+  } catch (error) {
+    console.error("Error al obtener el cuarto por ID:", error);
+    return res.status(500).json({ message: "Error interno del servidor" });
+  }
+};

@@ -56,4 +56,7 @@ export class CuartoService {
       })
     );
   }
+  getCuartoPorId(id: string): Observable<any> {
+    return this.http.get<any>(`${this.url}${id}`);
+  }
 }

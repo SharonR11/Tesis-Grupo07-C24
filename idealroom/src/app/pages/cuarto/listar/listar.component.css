@@ -20,6 +20,10 @@
     filter: brightness(90%);
 
 }
+.link-estilizado {
+  text-decoration: none; 
+  color: #000; /* Color del texto */
+}
 
 .container-lg{
     max-width: 900px;

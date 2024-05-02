@@ -1,0 +1,14 @@
+<section class="content">
+    <main>
+      <div *ngIf="cuarto">
+        <h2>{{ cuarto.nombre }}</h2>
+        <p>{{ cuarto.descripcion }}</p>
+        <p>{{ cuarto.descripcion }}</p>
+        <p>{{ cuarto.descripcion }}</p>
+        <p>{{ cuarto.descripcion }}</p>
+        <p>Precio: {{ cuarto.precio }}</p>
+      </div>
+      <div *ngIf="!cuarto">Cargando información del cuarto...</div>
+    </main>
+</section>
+  

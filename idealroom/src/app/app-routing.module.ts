@@ -9,14 +9,17 @@ import { CreateAlumnoComponent } from './pages/usuario/create-alumno/create-alum
 import { LoginComponent } from './pages/usuario/login/login.component';
 import { AuthGuard } from './../app/guards/auth.guard';
 import { AlumnoAuthGuard } from './../app/guards/alumno.auth.guard';
+import { DetalleComponent } from './pages/cuarto/detalle/detalle.component';
+import {MenuEstudianteComponent} from './pages/menu/menu-estudiante/menu-estudiante.component'
 const routesInicio: Routes = [
     // { path: '', component: LoginComponent },
   
   { path: '', component: InicioComponent },
   { path: 'crear-arrendador', component: CreateArrendadorComponent },
   { path: 'crear-alumno', component: CreateAlumnoComponent},
-
+  { path: 'detalle/:id', component: DetalleComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'menu-estudiante', component: MenuEstudianteComponent },
   // { path: 'listar-cuartos', component: ListarComponent},
   {
     path: 'listar-cuartos',

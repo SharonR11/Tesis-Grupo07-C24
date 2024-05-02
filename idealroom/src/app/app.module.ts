@@ -10,6 +10,10 @@ import { LoginComponent } from './pages/usuario/login/login.component';
 import { CreateCuartoComponent } from './pages/cuarto/create-cuarto/create.component';
 import { ListarComponent } from './pages/cuarto/listar/listar.component';
 import {NavbarComponent} from './pages/navbar/navbar.component'
+import {MenuEstudianteComponent} from './pages/menu/menu-estudiante/menu-estudiante.component';
+import {DetalleComponent } from './pages/cuarto/detalle/detalle.component';
+
+
 // import { CrearProductosComponent } from './pages/productos/crear-productos/crear-productos.component';
 
 // import { EditarProductosComponent } from './pages/productos/editar-productos/editar-productos.component';
@@ -25,7 +29,10 @@ import {NavbarComponent} from './pages/navbar/navbar.component'
     ListarComponent,
     CreateArrendadorComponent,
     CreateAlumnoComponent,
-    NavbarComponent
+    NavbarComponent,
+    MenuEstudianteComponent,
+    DetalleComponent
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,260 @@
+
+<section class="content">
+    <header>
+      <app-navbar></app-navbar>
+    </header>
+    <main>
+        <div class="col-buscar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="container buscador">
+            <div class="buscar">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="descripcion">
+                    <h2 class="desc">Busca tu lugar de alojamiento apropiado segun lo que necesites</h2>
+                    <p class="desc2">Bienvenido a tu búsqueda de alojamiento estudiantil. Encuentra tu lugar ideal cerca del instituto aquí.</p>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                  <div class="buscar">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Ingrese ubicacion .." aria-label="Buscar..." aria-describedby="button-addon">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon">Buscar</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+                  <div class="filtross">
+                    <div class="row">
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="buscar filtro1">
+                          <select>
+                            <option selected>Precio</option>
+                            <option value="1"> S/. 200 </option>
+                            <option value="2"> S/. 400 </option>
+                            <option value="3">S/. 600 </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="buscar">
+                          <select>
+                          <option selected>Distancia</option>
+                          <option value="1"> 1 km </option>
+                          <option value="2"> 1 - 5 km </option>
+                          <option value="3"> 5 - 10 km </option>
+                        </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="buscar">
+                          <select>
+                          <option selected>Servicios</option>
+                          <option value="1"> Agua </option>
+                          <option value="2"> Luz </option>
+                          <option value="3"> Internet </option>
+                        </select>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+          <div class="container infor">
+            <div class="informacion-cuerpo">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="info-left ">
+                    <div class="imagen1">
+                      <img src="assets/images/buscador2.webp" class="img-ideal" alt="...">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 columna-padre">
+                  <div class="info-right">
+                    <div class="info-desc">
+                      <h2 class="desc-left">Conoce los alojamients mas recomendados</h2>
+                      <p class="desc2-right">Explora alojamientos seguros y recomendados para estudiantes, 
+                        ideales para tu comodidad y tranquilidad mientras estudias.</p>
+                      <div class="bt-content">
+                          <a href="/crear-arrendador" class="btn btnstart">Conocer</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+          <div class="container">
+              <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="">
+                        <h4 class="subtitulo-linea">Alojamientos Destacados</h4>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+                <div class="">
+                  
+                  <p class="">Descubre nuestros alojamientos destacados: confort, conveniencia y la experiencia ideal para tu estadía</p>
+                </div>
+              </div>
+              <div class="col-info col-lg-12 col-md-12 col-sm-12 col-xs-12 espacio">
+                <div class="row">
+                  <ng-container *ngIf="cuartos.length > 0; else noCuartos">
+                    <div *ngFor="let cuarto of cuartos" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                      <div class="alojamiento">
+                        <div class="row">
+                          <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <div id="carouselExample" class="carousel slide alo-img" data-bs-ride="carousel">
+                              <div class="carousel-inner">
+                                <ng-container *ngIf="cuarto.fotos && cuarto.fotos.length > 0">
+                                  <div *ngFor="let fotoUrl of cuarto.fotos; let i = index" class="carousel-item" [class.active]="i === 0" data-bs-interval="10000">
+                                    <img [src]="fotoUrl" class="fot-alo" alt="...">
+                                  </div>
+                                </ng-container>
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+                          
+                          <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12  lado">
+                            <div class="alo-cont">
+                              <div class="alo-posicion">
+                                <div class="title">
+                                  <div class="row">
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                      <h4 class="titulo-alo text-alo">{{ cuarto.nombre }}</h4>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                      <p class="titulo-alo precio">S/. {{ cuarto.precio }}</p>
+                                    </div>
+                                  </div>
+                                </div>
+  
+                                <div class="alo-desc">
+                                  <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                      <p class="titulo-alo ubicacion-alo"><i class=" icono fas fa-location-dot"></i>{{ cuarto.direccion }}</p>
+                                      
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="servicios-alo">
+                                    <div class="row">
+                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ubi-pos" *ngFor="let servicioId of cuarto.servicios">
+                                        <ng-container *ngIf="servicioId === '657653ecef0d36869ea98422'">
+                                          <i class="fas fa-lightbulb iconito"></i>
+                                        </ng-container>
+                                        <ng-container *ngIf="servicioId === '657653ecef0d36869ea98421'">
+                                          <i class="fas fa-droplet"></i>
+                                        </ng-container>
+                                        <ng-container *ngIf="servicioId === '657653ecef0d36869ea98423'">
+                                          <i class="fas fa-wifi"></i>
+                                        </ng-container>
+                                        <!-- Añadir más condiciones para otros servicios -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+                                      <span class="badge"   [ngClass]="{' text-bg-info': cuarto.disponibilidad, ' text-bg-secondary': !cuarto.disponibilidad}">
+                                        {{ cuarto.disponibilidad ? 'Disponible' : 'No disponible' }}
+                                      </span>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"> 
+                                      <span class="badge rounded-pill text-bg-warning" >
+                                        Ver Oferta
+                                      </span>
+                                    </div>
+                                  </div>
+  
+                                  
+                                  
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-template #noCuartos>
+                    <p>No hay cuartos disponibles.</p>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+      </main>
+      <footer class=" py-3 empresa-footer">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-left">
+                        <div class="column-content ">
+                            <p class="foot-alo">Direccion</p>
+                            <p class="foot-alo">Telefono</p>
+                            <p class="foot-alo">Email</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-center">
+                        <div class="column-content">
+                            <p class="foot-alo">Polticas de Privacidad</p>
+                            <p class="foot-alo">Terminos y Condiciones</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-center">
+                        <div class="column-content">
+                            <p class="foot-alo">Conoce a la Empresa</p>
+                            <p class="foot-alo">Mision</p>
+                            <p class="foot-alo">Vision</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-right">
+                        <div class="column-content">
+                            <p class="foot-alo">Opciones de Cancelacion</p>
+                            <p class="foot-alo">Telefono</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 col-left">
+                        <div class="column-content content3">
+                            <p class="mb-3 foot-alo">Realizado por &copy; Tecsup, para que puedas encontrar tu mejor lugar!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </footer>
+  </section>
+  
+  
+  
+  
+  
+  
+  

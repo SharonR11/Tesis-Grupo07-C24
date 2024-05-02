@@ -140,7 +140,9 @@
                               <div class="title">
                                 <div class="row">
                                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                    <h4 class="titulo-alo text-alo">{{ cuarto.nombre }}</h4>
+                                    <a (click)="verDetalle(cuarto._id)" class="link-estilizado">
+                                      <h4 class="titulo-alo text-alo">{{ cuarto.nombre }}</h4>
+                                    </a>
                                   </div>
                                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
                                     <p class="titulo-alo precio">S/. {{ cuarto.precio }}</p>

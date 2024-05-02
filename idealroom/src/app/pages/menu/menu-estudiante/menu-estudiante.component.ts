@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { DataLoginService } from '../../../services/data-login.service';
 import { Router } from '@angular/router';
 import { CuartoService } from '../../../services/cuarto.service';
 
 @Component({
-  selector: 'app-listar',
-  templateUrl: './listar.component.html',
-  styleUrl: './listar.component.css'
+  selector: 'app-menu-estudiante',
+  templateUrl: './menu-estudiante.component.html',
+  styleUrl: './menu-estudiante.component.css'
 })
-export class ListarComponent implements OnInit {
+export class MenuEstudianteComponent implements OnInit{
 
   cuartos: any[] = [];
   cuartoForm!: FormGroup;
@@ -59,9 +60,6 @@ export class ListarComponent implements OnInit {
   getUserName(): string {
     const userName = this.dataLoginService.getUserName();
     return userName ? userName : ''; // Si userName es null, devuelve una cadena vacía
-  }
-  verDetalle(id: string): void {
-    this.router.navigate(['/detalle', id]);
   }
 
 }
