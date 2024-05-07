@@ -17,7 +17,7 @@ export class AlumnoAuthGuard implements CanActivate {
     const userRoles = this.dataLoginService.getUserRoles();
     const isAuthenticated = this.dataLoginService.getToken();
 
-    if (isAuthenticated && userRoles.includes(UserRoles.Alumno)) {
+    if (isAuthenticated && userRoles.includes(UserRoles.ESTUDIANTE)) {
       return true; // Permite el acceso si está autenticado y es alumno
     } else {
       this.router.navigate(['/']); // Redirige a una ruta por defecto si no cumple las condiciones

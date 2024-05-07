@@ -1,4 +1,4 @@
-<section class="content">
+<!-- <section class="content">
     <br><br>
     <div class="container">
         <div class="row">
@@ -79,3 +79,115 @@
         </div>
  
 </section>
+ -->
+
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-12" >
+                <!-- style="background-color: #5172b6;  border-radius: 22px;"> -->
+                <div class="column-content">
+                    <img src="assets/images/idealroom.png" class="img-ideal" alt="...">
+                </div>
+
+                <div class="column-content">
+                    <img src="assets/images/cuartito.webp" class="imagen mx-auto" alt="...">
+                </div>
+
+                <div class="column-content">
+                    <div class="opcion">
+                        <div class="opcion-position text-center">
+                            <p>¡Bienvenido a IDEAL ROOM! Tu solución para una búsqueda 
+                                de alojamiento estudiantil más fácil y conveniente. Encuentra 
+                                tu lugar ideal cerca de Tecsup, de manera rápida y eficiente 
+                                con nuestra aplicación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-sm-12 ">
+                <div class="formulario">
+                    <div class="form-contenido">
+                        <div class="my-3">
+                            <div class="row">
+                                <div class="title">
+                                    <h2>Iniciar Sesion</h2>                                                 
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="cuerpo">
+                            <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-lg-12 col-sm-12 my-3">
+                                        <div class="form-registro">
+                                            <div class="col-md-2 col-sm-2 col-lg-2 col-left">
+                                                <div class="form-input-right ">
+                                                    <i class="fas fa-at"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-lg-10 col-center">
+                                                <div class="form-input-left">
+                                                    <input class="" name="email" type="email" id="email" 
+                                                    title="Ingrese su Email"  formControlName="email" placeholder="Email"> 
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="form-registro">
+                                            <div class="col-md-2 col-sm-2 col-lg-2 col-left">
+                                                <div class="form-input-right ">
+                                                    <i class="fas fa-unlock"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 col-sm-10 col-lg-10 col-center">
+                                                <div class="form-input-left">
+                                                    <input class="" name="password" type="password" id="password" 
+                                                    title="Ingrese su Contraseña"  formControlName="password" placeholder="Contraseña"> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="bt-content">
+                                            <button type="submit" class="btn btnstart" [disabled]="loginForm.invalid">Iniciar Sesion</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        
+                        <div class="linea">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <hr>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <p>o crear cuenta</p>
+                                </div>
+                                <div class="col-md-4 col-lg-4">
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="volver">
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <div class="bt-content">
+                                    <button [routerLink]="['/crear-usuario']" class="btn btnstart1">Registrarse</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>                 
+            </div>
+        </div>
+    </div>
+     
+</section>
+ 

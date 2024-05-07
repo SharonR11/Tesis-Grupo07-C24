@@ -42,18 +42,7 @@ export class DataLoginService {
       })
     );
   }
-  // signin(userData: any): Observable<any> {
-  //   return this.http.post<any>(`${this.url}signin`, userData).pipe(
-  //     map(response => {
-  //       if (response && response.token && response.user && response.user.roles) {
-  //         // Almacenar los roles del usuario en el servicio
-  //         this.setUserRoles(response.user.roles);
-  //       }
-  //       return response;
-  //     })
-  //   );
-  // }
-
+ 
   getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
@@ -64,9 +53,6 @@ export class DataLoginService {
     this.userRoles = []; // También limpia los roles en el servicio
   }
 
-  // logout(): Observable<any> {
-  //   return this.http.post<any>(`${this.url}logout`, {});
-  // }
   logout(): Observable<any> {
     const headers = {
       'Authorization': `Bearer ${localStorage.getItem(this.tokenKey)}`
@@ -95,22 +81,11 @@ export class DataLoginService {
     this.userRolesSubject.next(roles); // Actualiza el BehaviorSubject
   }
 
-  // setUserId(userId: string): void {
-  //   this.userId = userId;
-  // }
   setUserId(userId: string): void {
     this.userId = userId;
     localStorage.setItem('userId', userId); // Almacena el ID del usuario en localStorage
   }
 
-  // getUserId(): string | null {
-  //   const userData = localStorage.getItem('userData');
-  //   if (userData) {
-  //     const parsedData = JSON.parse(userData);
-  //     return parsedData.userId; // Ajusta la estructura según cómo se almacena el ID del usuario en tu app
-  //   }
-  //   return null;
-  // }
   getUserId(): string | null {
     const userId = localStorage.getItem('userId');
     if (userId) {

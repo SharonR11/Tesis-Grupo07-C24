@@ -11,16 +11,11 @@ export class AuthGuard   {
     private dataLoginService: DataLoginService, 
     private router: Router) {}
 
-  // canActivate(): boolean {
-  //   if (!this.dataLoginService.getToken() || !this.dataLoginService.getUserRoles()) {
-  //     this.router.navigate(['/login']);
-  //     return false;
-  //   }
   canActivate(): boolean {
     const userRoles = this.dataLoginService.getUserRoles();
     const isAuthenticated = this.dataLoginService.getToken();
 
-    if (isAuthenticated && userRoles.includes(UserRoles.Alumno)) {
+    if (isAuthenticated && userRoles.includes(UserRoles.ESTUDIANTE)) {
       return true; // Permite el acceso si está autenticado y es alumno
     } else {
       this.router.navigate(['/']); // Redirige a una ruta por defecto si no cumple las condiciones
